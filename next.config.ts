@@ -16,7 +16,7 @@ const remotePatterns: { protocol: "https"; hostname: string }[] = [];
 
 // URLs antigas que mudaram de nome (também precisam de página com meta refresh para a prévia estática)
 const redirects: { source: string; destination: string; permanent: boolean }[] = [
-  // { source: "/pagina-antiga", destination: "/pagina-nova", permanent: true },
+  { source: "/kit-b1", destination: "/loja/kit-prova-b1", permanent: true },
 ];
 
 const nextConfig: NextConfig = estatico

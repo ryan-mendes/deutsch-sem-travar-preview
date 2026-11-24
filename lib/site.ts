@@ -40,7 +40,7 @@ export type NavItem = { label: string; href: string; children?: { label: string;
 export const nav: NavItem[] = [
   { label: "Início", href: "/" },
   { label: "Aulas", href: "/estude-comigo" },
-  { label: "Kit Prova B1", href: "/kit-b1" },
+  { label: "Kits e e-books", href: "/loja" },
   { label: "Materiais grátis", href: "/materiais" },
   { label: "Sobre a Fran", href: "/sobre" },
 ];

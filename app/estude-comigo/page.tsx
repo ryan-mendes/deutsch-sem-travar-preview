@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Briefcase, GraduationCap, Plane, Plug, Sparkles } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import AulaForm from "@/components/forms/AulaForm";
@@ -6,6 +7,7 @@ import Reveal from "@/components/motion/Reveal";
 import Pilares from "@/components/sections/Pilares";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { IconeWhats } from "@/components/ui/Icones";
+import { img } from "@/lib/imagens";
 import { links, marca } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -16,11 +18,11 @@ export const metadata: Metadata = {
 const PASSOS = [
   { n: "1", titulo: "Me conta de você", texto: "Preencha o formulário com seu nível e seu objetivo, ou me chame direto no WhatsApp." },
   { n: "2", titulo: "A gente conversa", texto: "Pelo WhatsApp eu entendo o que você precisa e explico como funcionam as aulas." },
-  { n: "3", titulo: "Você começa a falar", texto: "Aulas no seu ritmo, com o alemão do dia a dia e, se for o caso, foco na prova." },
+  { n: "3", titulo: "Você começa a falar", texto: "Grupos pequenos e professores acompanhando o seu avanço, com o alemão do dia a dia e, se for o caso, foco na prova." },
 ];
 
 const OBJETIVOS = [
-  { Icon: GraduationCap, t: "Certificado B1", d: "Goethe ou telc" },
+  { Icon: GraduationCap, t: "Certificado", d: "Goethe ou telc, do A1 ao C2" },
   { Icon: Briefcase, t: "Trabalho e Ausbildung", d: "Alemão para a vida profissional" },
   { Icon: Plane, t: "Morar ou visto", d: "Alemanha, Áustria ou Suíça" },
   { Icon: Sparkles, t: "Cultura e viagem", d: "Música, filmes e vivências" },
@@ -54,7 +56,13 @@ export default function EstudeComigoPage() {
       >
         <div className="relative rounded-[2rem] border-2 border-primary-strong bg-white p-7 shadow-sticker md:p-9">
           <span className="absolute -top-4 left-8 rounded-full bg-primary-bright px-4 py-1 font-display text-sm font-semibold text-primary-strong">Hallo! 👋</span>
-          <p className="mb-6 text-xl font-semibold tracking-tight text-primary-strong">Quero estudar com a Fran</p>
+          <div className="mb-6 flex items-center gap-4">
+            <Image src={img.franSelfie} alt="Fran sorrindo" sizes="64px" className="h-16 w-16 shrink-0 rounded-full border-2 border-primary-strong object-cover" />
+            <div>
+              <p className="text-xl font-semibold leading-tight tracking-tight text-primary-strong">Quer destravar seu alemão com a Fran?</p>
+              <p className="mt-1 text-sm text-muted">Faça seu cadastro e converse pelo WhatsApp para descobrir o melhor caminho para você.</p>
+            </div>
+          </div>
           <AulaForm />
         </div>
       </PageHero>

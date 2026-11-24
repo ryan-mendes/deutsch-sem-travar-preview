@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Marquee from "@/components/sections/Marquee";
+import Comparativo from "@/components/sections/Comparativo";
 import Caminhos from "@/components/sections/Caminhos";
 import SobrePreview from "@/components/sections/SobrePreview";
 import KitBanda from "@/components/sections/KitBanda";
@@ -12,10 +13,11 @@ export default function Home() {
     <main>
       <Hero />
       <Marquee />
-      <Caminhos />
-      <SobrePreview />
-      <KitBanda />
+      <Comparativo />
       <Pilares />
+      <Caminhos />
+      <KitBanda />
+      <SobrePreview />
       <InstagramGrid />
       <CtaFinal />
     </main>

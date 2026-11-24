@@ -25,30 +25,77 @@ export const kitB1 = {
   paises: "Alemanha, Áustria ou Suíça",
 };
 
+// Didática Camaleão: os 4 pilares da LP oficial do Deutsch sem Travar.
 export const pilares = [
   {
-    titulo: "Alemão do dia a dia",
-    texto: "O foco é você falar. A Fran ensina o idioma como ele é vivido: na rua, no trabalho, na cultura.",
+    titulo: "Aprenda do seu jeito",
+    texto: "Quem aprende vendo, vê. Quem precisa de exemplo, tem exemplo. Você não precisa se encaixar no método: o método se encaixa em você.",
   },
   {
-    titulo: "Pra cada aluno, uma forma de falar",
-    texto: "Cada pessoa tem seu ritmo e seu estilo. As aulas se adaptam a você, e não o contrário.",
+    titulo: "Alemão da sua rotina",
+    texto: "Você treina o que vai usar de verdade: no mercado, no médico, no trabalho, nas repartições, na conversa com os vizinhos.",
   },
   {
-    titulo: "Comunicação e imersão",
-    texto: "Uma abordagem interativa, com cultura, música e vivências reais para o alemão fazer sentido.",
+    titulo: "Gramática que você enxerga",
+    texto: "A gramática deixa de ser um monte de regras abstratas e aparece no seu cotidiano, onde faz sentido. Quando você vê, você lembra.",
   },
   {
-    titulo: "Todos os níveis",
-    texto: "Do primeiro Hallo até a preparação para o certificado B1 do Goethe ou da telc.",
+    titulo: "Você não aprende sozinho",
+    texto: "Grupos pequenos e professores acompanhando o seu avanço. Alguém para praticar quando a vida aí não te dá com quem falar.",
   },
+];
+
+/** "O jeito de sempre" x "Deutsch sem Travar" (LP oficial). */
+export const comparativo = [
+  { antes: "O mesmo método para todo mundo", depois: "Didática que se adapta ao seu jeito de aprender" },
+  { antes: "Gramática abstrata, cheia de regras soltas", depois: "Gramática que aparece na sua rotina" },
+  { antes: "Decoreba que você esquece na semana seguinte", depois: "Alemão que você usa, e por isso lembra" },
+  { antes: "Apps e vídeos soltos, sem caminho", depois: "Um caminho claro para seguir" },
+  { antes: "Você estuda sozinho e desanima", depois: "Você é acompanhado de perto e continua" },
+  { antes: "Entende o básico, mas continua mudo no mercado e no médico", depois: "Aprende para falar no dia a dia, sem depender de ninguém" },
+];
+
+/** "Você vai falar alemão no seu dia a dia, mesmo que..." (LP oficial). */
+export const mesmoQue = [
+  "Você já tenha visto o idioma 40 mil vezes e nada fique na cabeça.",
+  "A gramática pareça um monte de regras sem sentido.",
+  "Morando aí, você quase nunca precise falar com ninguém.",
+];
+
+/** Trajetória da Fran (LP oficial). */
+export const trajetoria = [
+  { titulo: "Instituto Goethe", texto: "Ex-bolsista" },
+  { titulo: "UNIFESP", texto: "Formada em Física" },
+  { titulo: "Schuler", texto: "6 meses na Alemanha" },
 ];
 
 /** Temas dos destaques do Instagram: o que aparece nas aulas e nos conteúdos. */
 export const temas = ["Didática", "Vivências", "Cultura", "Musik", "Philosophie", "Tipps", "Gramática", "Prova B1", "Sprechen", "Schreiben"];
 
-export const objetivos = ["Prova / certificado (B1)", "Trabalho ou Ausbildung", "Morar ou tirar visto", "Viagem e cultura", "Outro"];
-export const niveis = ["Nunca estudei", "Básico (A1/A2)", "Intermediário (B1)", "Avançado (B2+)", "Não sei meu nível"];
+export const objetivos = ["Prova / certificado (A1 ao C2)", "Trabalho ou Ausbildung", "Morar ou tirar visto", "Viagem e cultura", "Outro"];
+export const niveis = ["Nunca estudei", "Básico, entendo pouco", "Intermediário, entendo mas travo", "Avançado, quero mais confiança"];
+export const urgencias = ["Alta, preciso falar agora", "Média, nos próximos meses", "Baixa, estou pesquisando"];
+
+/** DDI do WhatsApp (mesma lista da LP). */
+export const paises = [
+  { id: "BR", nome: "Brasil", ddi: "55" },
+  { id: "DE", nome: "Alemanha", ddi: "49" },
+  { id: "AT", nome: "Áustria", ddi: "43" },
+  { id: "CH", nome: "Suíça", ddi: "41" },
+  { id: "PT", nome: "Portugal", ddi: "351" },
+  { id: "BE", nome: "Bélgica", ddi: "32" },
+  { id: "CA", nome: "Canadá", ddi: "1" },
+  { id: "ES", nome: "Espanha", ddi: "34" },
+  { id: "US", nome: "Estados Unidos", ddi: "1" },
+  { id: "FR", nome: "França", ddi: "33" },
+  { id: "NL", nome: "Holanda", ddi: "31" },
+  { id: "IE", nome: "Irlanda", ddi: "353" },
+  { id: "IT", nome: "Itália", ddi: "39" },
+  { id: "JP", nome: "Japão", ddi: "81" },
+  { id: "LU", nome: "Luxemburgo", ddi: "352" },
+  { id: "GB", nome: "Reino Unido", ddi: "44" },
+  { id: "XX", nome: "Outro país", ddi: "" },
+];
 
 export const faqKit = [
   {
@@ -69,6 +116,6 @@ export const faqKit = [
   },
   {
     p: "Quero ajuda além do material. É possível?",
-    r: "Sim. Você pode estudar com a Fran em aulas individuais: é só chamar no WhatsApp ou preencher o formulário da página de aulas.",
+    r: "Sim. Você pode estudar com a Fran em aulas com acompanhamento de perto: é só chamar no WhatsApp ou preencher o formulário da página de aulas.",
   },
 ];

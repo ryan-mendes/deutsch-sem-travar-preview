@@ -26,8 +26,8 @@ export default function CtaFinal({ titulo = "Bora destravar o seu alemão?", tex
               </a>
             </div>
           </div>
-          <div className="relative mx-auto hidden w-56 md:block lg:w-64">
-            <Image src={img.franIlustracao} alt="" sizes="256px" className="bob h-auto w-full rounded-full border-4 border-white shadow-panel" />
+          <div className="relative mx-auto -mb-20 hidden w-56 self-end md:block md:-mb-24 lg:w-64">
+            <Image src={img.franAceno} alt="" sizes="256px" className="h-auto w-full drop-shadow-xl" />
           </div>
         </div>
       </Reveal>

@@ -16,22 +16,39 @@ const UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_conten
 const utm = (fd: FormData) => Object.fromEntries(UTM.map((k) => [k, fd.get(k) || null]));
 
 /* ── Interesse em aulas ── */
-export type CampoAula = "nome" | "whatsapp" | "nivel" | "objetivo" | "mensagem";
+export type CampoAula = "nome" | "email" | "whatsapp" | "nivel" | "urgencia" | "objetivo" | "mensagem";
 export type AulaState = FormState<CampoAula>;
 
+const emailValido = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+
+/** Número completo com DDI. No Brasil exige DDD + número (10 ou 11 dígitos). */
+function whatsCompleto(pais: string, ddi: string, numero: string) {
+  const d = onlyDigits(numero);
+  if (pais === "BR") return d.length === 10 || d.length === 11 ? "55" + d : null;
+  if (pais === "XX" || !ddi) return whatsValido(d) ? d : null;
+  return d.length >= 6 && d.length <= 13 ? ddi + d.replace(/^0+/, "") : null;
+}
+
 export function validarAula(fd: FormData): Resultado<CampoAula, Record<string, unknown>> {
-  const v = (k: CampoAula) => String(fd.get(k) ?? "").trim();
+  const v = (k: string) => String(fd.get(k) ?? "").trim();
   const errors: Partial<Record<CampoAula, string>> = {};
-  if (v("nome").length < 2) errors.nome = "Como você se chama?";
-  if (!whatsValido(v("whatsapp"))) errors.whatsapp = "Informe seu WhatsApp com DDD (ou código do país).";
-  if (!v("nivel")) errors.nivel = "Escolha seu nível atual.";
+  if (v("nome").split(/\s+/).filter((p) => p.length > 1).length < 2) errors.nome = "Informe seu nome completo.";
+  if (!emailValido(v("email"))) errors.email = "Informe um e-mail válido.";
+  const whats = whatsCompleto(v("pais") || "BR", v("ddi"), v("whatsapp"));
+  if (!whats) errors.whatsapp = v("pais") === "XX" ? "Informe o número com o código do país." : "Informe seu WhatsApp com DDD.";
+  if (!v("nivel")) errors.nivel = "Conte como está seu alemão hoje.";
+  if (!v("urgencia")) errors.urgencia = "Escolha a sua urgência.";
   if (!v("objetivo")) errors.objetivo = "Escolha seu objetivo.";
+  if (v("mensagem").length > 1000) errors.mensagem = "Use até 1000 caracteres.";
   return {
     errors,
     dados: {
       nome: v("nome"),
-      whatsapp: onlyDigits(v("whatsapp")),
+      email: v("email").toLowerCase(),
+      whatsapp: whats,
+      pais: v("pais") || "BR",
       nivel: v("nivel"),
+      urgencia: v("urgencia"),
       objetivo: v("objetivo"),
       mensagem: v("mensagem") || null,
       utm: utm(fd),
@@ -39,12 +56,16 @@ export function validarAula(fd: FormData): Resultado<CampoAula, Record<string, u
   };
 }
 
+/** Campo invisível anti-robô: pessoas não preenchem, robôs sim. */
+export const ehRobo = (fd: FormData) => String(fd.get("website") ?? "").trim() !== "";
+
 /** Mensagem pronta para o aluno continuar a conversa no WhatsApp da Fran. */
 export function textoWhatsAula(fd: FormData) {
   const v = (k: string) => String(fd.get(k) ?? "").trim();
   const linhas = [
-    `Hallo, Fran! 😊 Sou ${v("nome")} e quero estudar alemão com você.`,
+    `Hallo, Fran! 😊 Sou ${v("nome")} e quero destravar meu alemão.`,
     `Nível: ${v("nivel")}`,
+    `Urgência: ${v("urgencia")}`,
     `Objetivo: ${v("objetivo")}`,
   ];
   if (v("mensagem")) linhas.push(v("mensagem"));

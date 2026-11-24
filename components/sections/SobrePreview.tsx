@@ -11,10 +11,10 @@ export default function SobrePreview() {
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-8 lg:grid-cols-2 lg:gap-20">
         <Reveal className="relative mx-auto w-full max-w-md">
           <div className="relative aspect-[4/5] -rotate-2 overflow-hidden rounded-[2rem] border-4 border-white shadow-panel">
-            <Image src={img.quemSouEu} alt="Post 'Quem sou eu' com foto da Fran sorrindo" sizes="(min-width: 1024px) 440px, 90vw" className="h-full w-full object-cover" />
+            <Image src={img.franLivros} alt="Francielle sentada no tapete, sorrindo, cercada de livros em alemão" sizes="(min-width: 1024px) 440px, 90vw" className="h-full w-full object-cover" />
           </div>
           <div className="absolute -bottom-8 -right-4 w-36 rotate-6 overflow-hidden rounded-2xl border-4 border-white shadow-panel sm:-right-10 sm:w-44">
-            <Image src={img.franFoto} alt="Retrato da Fran com colar de globos" sizes="176px" className="h-auto w-full" />
+            <Image src={img.franBerlimTorre} alt="Fran apontando para a Torre de TV de Berlim" sizes="176px" className="h-auto w-full" />
           </div>
         </Reveal>
 
@@ -25,10 +25,10 @@ export default function SobrePreview() {
           </h2>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted">
             <p>
-              Professora e tradutora de alemão, com mais de <strong className="text-ink">10.000 horas de ensino</strong>. Meu jeito de ensinar é
-              focado em comunicação e imersão: você aprende o alemão que as pessoas falam de verdade.
+              Física pela UNIFESP, ex-bolsista do Instituto Goethe e professora com mais de <strong className="text-ink">10.000 horas de ensino</strong>.
+              Saí da Favela Naval, em Diadema, e cheguei até a Alemanha.
             </p>
-            <p>Acredito que cada aluno tem o seu ritmo. Por isso, pra cada aluno, uma forma de falar.</p>
+            <p>Dando aulas, percebi que cada aluno aprende de um jeito. Dessa descoberta nasceu a Didática Camaleão: o ensino muda para se encaixar em você.</p>
           </div>
           <ul className="mt-7 flex flex-wrap gap-2">
             {temas.slice(0, 7).map((t) => (
