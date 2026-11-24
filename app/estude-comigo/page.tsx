@@ -47,19 +47,19 @@ export default function EstudeComigoPage() {
               href={links.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-base font-semibold text-white transition hover:brightness-105"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-base sm:w-auto font-semibold text-white transition hover:brightness-105"
             >
               <IconeWhats className="h-5 w-5" /> Prefere falar agora? Chame no WhatsApp
             </a>
           </>
         }
       >
-        <div className="relative rounded-[2rem] border-2 border-primary-strong bg-white p-7 shadow-sticker md:p-9">
+        <div className="relative rounded-[1.75rem] border-2 border-primary-strong bg-white px-4 pb-6 pt-7 shadow-sticker sm:rounded-[2rem] sm:p-7 md:p-9">
           <span className="absolute -top-4 left-8 rounded-full bg-primary-bright px-4 py-1 font-display text-sm font-semibold text-primary-strong">Hallo! 👋</span>
           <div className="mb-6 flex items-center gap-4">
-            <Image src={img.franSelfie} alt="Fran sorrindo" sizes="64px" className="h-16 w-16 shrink-0 rounded-full border-2 border-primary-strong object-cover" />
+            <Image src={img.franSelfie} alt="Fran sorrindo" sizes="64px" className="h-14 w-14 shrink-0 rounded-full border-2 sm:h-16 sm:w-16 border-primary-strong object-cover" />
             <div>
-              <p className="text-xl font-semibold leading-tight tracking-tight text-primary-strong">Quer destravar seu alemão com a Fran?</p>
+              <p className="text-lg font-semibold leading-tight tracking-tight text-primary-strong sm:text-xl">Quer destravar seu alemão com a Fran?</p>
               <p className="mt-1 text-sm text-muted">Faça seu cadastro e converse pelo WhatsApp para descobrir o melhor caminho para você.</p>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function EstudeComigoPage() {
         </div>
       </PageHero>
 
-      <section className="bg-surface pb-24 md:pb-32">
+      <section className="bg-surface pb-16 sm:pb-24 md:pb-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <SectionTitle
             eyebrow="Como começar"
@@ -77,13 +77,15 @@ export default function EstudeComigoPage() {
               </>
             }
           />
-          <ol className="mt-12 grid gap-5 md:grid-cols-3">
+          <ol className="mt-8 grid gap-3 sm:mt-12 sm:gap-5 md:grid-cols-3">
             {PASSOS.map((p, i) => (
               <Reveal as="li" key={p.n} delay={i * 0.08}>
-                <div className="h-full rounded-[1.75rem] border border-ink/[0.07] bg-white p-7 shadow-card">
-                  <span className="grid h-12 w-12 place-items-center rounded-full bg-primary-bright font-display text-xl font-bold text-primary-strong">{p.n}</span>
-                  <h3 className="mt-6 text-xl font-semibold text-primary-strong">{p.titulo}</h3>
-                  <p className="mt-2 leading-relaxed text-muted">{p.texto}</p>
+                <div className="flex h-full gap-4 rounded-[1.5rem] border border-ink/[0.07] bg-white p-5 shadow-card sm:block sm:rounded-[1.75rem] sm:p-7">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary-bright font-display text-lg font-bold text-primary-strong sm:h-12 sm:w-12 sm:text-xl">{p.n}</span>
+                  <div>
+                    <h3 className="text-lg font-semibold text-primary-strong sm:mt-6 sm:text-xl">{p.titulo}</h3>
+                    <p className="mt-1 leading-relaxed text-muted sm:mt-2">{p.texto}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -93,16 +95,16 @@ export default function EstudeComigoPage() {
 
       <Pilares />
 
-      <section className="relative overflow-hidden py-24 text-white md:py-32">
+      <section className="relative overflow-hidden py-16 text-white sm:py-24 md:py-32">
         <div className="bg-band absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
           <SectionTitle light eyebrow="Para quem é" title={<>Seja qual for o seu <span className="text-gradient-light">objetivo</span></>} />
-          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-4 lg:grid-cols-5">
             {OBJETIVOS.map(({ Icon, t, d }, i) => (
               <Reveal as="li" key={t} delay={i * 0.06} y={20}>
-                <div className="h-full rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition hover:bg-white/10">
+                <div className="h-full rounded-3xl border border-white/10 bg-white/[0.06] p-4 transition sm:p-6 hover:bg-white/10">
                   <Icon className="text-primary-bright" />
-                  <p className="mt-5 font-display text-lg font-semibold leading-snug">{t}</p>
+                  <p className="mt-3 font-display text-base font-semibold leading-snug sm:mt-5 sm:text-lg">{t}</p>
                   <p className="mt-1 text-sm text-white/65">{d}</p>
                 </div>
               </Reveal>

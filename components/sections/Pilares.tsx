@@ -9,10 +9,10 @@ const ICONES = [Footprints, ShoppingBasket, Eye, Users];
 /** Didática Camaleão: título fixo à esquerda com o mascote, os 4 pilares à direita. */
 export default function Pilares() {
   return (
-    <section className="bg-white py-24 md:py-32">
-      <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+    <section className="bg-white py-16 sm:py-24 md:py-32">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:gap-14 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
         <Reveal className="lg:sticky lg:top-32 lg:self-start">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-primary">Didática Camaleão</p>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.25em] text-primary">Didática Camaleão</p>
           <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-primary-strong">
             O alemão que <span className="text-gradient">se adapta a você</span>
           </h2>
@@ -28,14 +28,14 @@ export default function Pilares() {
             </p>
           </div>
         </Reveal>
-        <ul className="grid gap-5 sm:grid-cols-2">
+        <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 no-scrollbar scroll-px-4 sm:mx-0 sm:grid sm:overflow-visible sm:px-0 sm:pb-0 sm:grid-cols-2 sm:gap-5">
           {pilares.map((p, i) => {
             const Icon = ICONES[i % ICONES.length];
             const destaque = i === 1;
             return (
-              <Reveal as="li" key={p.titulo} delay={(i % 2) * 0.08} className={i % 2 === 1 ? "sm:translate-y-10" : ""}>
+              <Reveal as="li" key={p.titulo} delay={(i % 2) * 0.08} className={`w-[80%] shrink-0 snap-start sm:w-auto ${i % 2 === 1 ? "sm:translate-y-10" : ""}`}>
                 <div
-                  className={`h-full rounded-[1.75rem] p-7 transition duration-500 hover:-translate-y-1 ${
+                  className={`h-full rounded-[1.75rem] p-6 transition sm:p-7 duration-500 hover:-translate-y-1 ${
                     destaque ? "border-2 border-primary-strong bg-vivid shadow-sticker" : "border border-ink/[0.07] bg-surface hover:shadow-card-hover"
                   }`}
                 >

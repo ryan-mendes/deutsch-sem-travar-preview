@@ -49,20 +49,20 @@ export default function SobrePage() {
           </>
         }
       >
-        <div className="relative mx-auto w-full max-w-sm">
-          <div className="aspect-[4/5] -rotate-2 overflow-hidden rounded-[2rem] border-4 border-white bg-vivid shadow-panel">
+        <div className="relative mx-auto w-full max-w-[300px] sm:max-w-sm">
+          <div className="aspect-[4/5] sm:-rotate-2 overflow-hidden rounded-[2rem] border-4 border-white bg-vivid shadow-panel">
             <Image src={img.franLivros} alt="Francielle sentada no tapete, sorrindo, cercada de livros em alemão" priority sizes="384px" className="h-full w-full object-cover" />
           </div>
-          <div className="absolute -bottom-4 -right-2 w-28 rotate-6 overflow-hidden rounded-full border-4 border-white shadow-panel sm:w-32">
+          <div className="absolute -bottom-4 right-2 w-24 rotate-6 sm:-right-2 sm:w-32 overflow-hidden rounded-full border-4 border-white shadow-panel">
             <Image src={img.franSelfie} alt="Selfie da Fran rindo, com flores no cabelo" sizes="128px" className="h-auto w-full" />
           </div>
         </div>
       </PageHero>
 
-      <section className="bg-surface pb-24 md:pb-32">
+      <section className="bg-surface pb-16 sm:pb-24 md:pb-32">
         <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <Reveal>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-primary">Minha história</p>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.25em] text-primary">Minha história</p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-primary-strong">
               Da Favela Naval <span className="text-gradient">até a Alemanha</span>
             </h2>
@@ -84,19 +84,19 @@ export default function SobrePage() {
             </div>
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col gap-5">
-            <ul className="grid gap-3 sm:grid-cols-3">
+            <ul className="grid grid-cols-3 gap-2 sm:gap-3">
               {trajetoria.map((t) => (
-                <li key={t.titulo} className="rounded-2xl border-2 border-primary-strong bg-primary-bright px-4 py-3 shadow-sticker">
-                  <p className="font-display text-lg font-bold text-primary-strong">{t.titulo}</p>
-                  <p className="text-sm font-semibold text-primary-strong/75">{t.texto}</p>
+                <li key={t.titulo} className="rounded-2xl border-2 border-primary-strong bg-primary-bright px-3 py-3 shadow-sticker sm:px-4">
+                  <p className="font-display text-sm font-bold leading-tight sm:text-lg text-primary-strong">{t.titulo}</p>
+                  <p className="mt-0.5 text-xs font-semibold text-primary-strong/75 sm:text-sm">{t.texto}</p>
                 </li>
               ))}
             </ul>
-            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:grid-cols-1">
               {NUMEROS.map((n) => (
-                <div key={n.rotulo} className="rounded-3xl border border-ink/[0.07] bg-white p-6 shadow-card">
-                  <p className="font-display text-4xl font-semibold text-primary-strong">{n.valor}</p>
-                  <p className="mt-1 text-muted">{n.rotulo}</p>
+                <div key={n.rotulo} className="rounded-2xl border border-ink/[0.07] bg-white p-3 shadow-card sm:rounded-3xl sm:p-6">
+                  <p className="font-display text-xl font-semibold sm:text-4xl text-primary-strong">{n.valor}</p>
+                  <p className="mt-1 text-xs leading-snug text-muted sm:text-base">{n.rotulo}</p>
                 </div>
               ))}
             </div>
@@ -104,7 +104,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="bg-white pt-24 md:pt-32">
+      <section className="bg-white pt-16 sm:pt-24 md:pt-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <SectionTitle eyebrow="Vivências" title={<>A Alemanha que eu <span className="text-gradient">levo para as aulas</span></>} />
           <ul className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -119,10 +119,10 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="bg-white py-24 md:py-32">
+      <section className="bg-white py-16 sm:py-24 md:py-32">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-8 lg:grid-cols-2 lg:gap-20">
           <Reveal className="relative mx-auto w-full max-w-sm">
-            <Image src={img.aprendaComAFran} alt="Fran sorrindo entre flores: Aprenda alemão com a Fran" sizes="384px" className="h-auto w-full -rotate-2 rounded-[2rem] border-4 border-white shadow-panel" />
+            <Image src={img.aprendaComAFran} alt="Fran sorrindo entre flores: Aprenda alemão com a Fran" sizes="384px" className="h-auto w-full sm:-rotate-2 rounded-[2rem] border-4 border-white shadow-panel" />
           </Reveal>
           <div>
             <SectionTitle

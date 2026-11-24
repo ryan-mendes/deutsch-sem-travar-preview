@@ -7,7 +7,7 @@ import { links, marca } from "@/lib/site";
 
 export default function InstagramGrid() {
   return (
-    <section className="bg-surface py-24 md:py-32">
+    <section className="bg-surface py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionTitle

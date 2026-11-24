@@ -8,8 +8,8 @@ const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-band text-white">
-      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-        <div>
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 px-4 py-14 sm:gap-12 sm:px-8 sm:py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div className="col-span-2 md:col-span-1">
           <Logo claro />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
             {marca.professora}, professora e tradutora de alemão. Ajudo você a falar alemão vivendo o idioma no dia a dia.
@@ -50,7 +50,7 @@ export default function Footer() {
           </ul>
         </nav>
 
-        <div>
+        <div className="col-span-2 md:col-span-1">
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary-bright">Fale com a Fran</p>
           <a href={links.whatsapp} {...ext} className="block text-2xl font-semibold tabular-nums tracking-tight hover:text-primary-bright">
             +55 11 98074-0722
@@ -61,7 +61,7 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="border-t border-white/10 py-6 text-center text-xs text-white/50">
+      <div className="border-t border-white/10 px-4 py-6 pb-24 text-center text-xs text-white/50 sm:pb-6">
         © {new Date().getFullYear()} {marca.nome} · {marca.professora}. Todos os direitos reservados.
       </div>
     </footer>

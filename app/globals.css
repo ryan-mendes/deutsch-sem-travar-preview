@@ -134,3 +134,19 @@ h1, h2, h3, .font-display {
   html { scroll-behavior: auto; }
   .word-mask > span, .fade-up, .veil, .drift, .marquee { animation: none; opacity: 1; transform: none; }
 }
+
+/* Carrosséis com rolagem lateral no celular */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Com a barra de compra visível (celular), o botão do WhatsApp sobe para não cobri-la. */
+.whats-flutuante {
+  transition: bottom 0.3s ease, transform 0.2s ease;
+}
+body:has(.barra-compra[data-barra="on"]) .whats-flutuante {
+  bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}

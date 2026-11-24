@@ -45,10 +45,10 @@ export default function LojaPage() {
           </>
         }
       >
-        <Image src={img.kitsTodos} alt="Os seis Kits Prova sem Travar, do A1 ao C2" priority sizes="(min-width: 1024px) 480px, 90vw" className="mx-auto h-auto w-full max-w-md rotate-2 rounded-[1.75rem] border-2 border-primary-strong shadow-sticker" />
+        <Image src={img.kitsTodos} alt="Os seis Kits Prova sem Travar, do A1 ao C2" priority sizes="(min-width: 1024px) 480px, 90vw" className="mx-auto h-auto w-full max-w-md sm:rotate-2 rounded-[1.75rem] border-2 border-primary-strong shadow-sticker" />
       </PageHero>
 
-      <section id="kits" className="scroll-mt-28 bg-surface pb-24 md:pb-32">
+      <section id="kits" className="scroll-mt-28 bg-surface pb-16 sm:pb-24 md:pb-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <SectionTitle
             eyebrow="Kit Prova sem Travar · Goethe e telc"
@@ -59,7 +59,7 @@ export default function LojaPage() {
             }
             description="Como funciona cada parte, cronograma semana a semana, roteiros para o Sprechen, modelos de Schreiben e simulados com gabarito."
           />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {kitsProva.map((p, i) => (
               <Reveal as="li" key={p.slug} delay={(i % 3) * 0.08}>
                 <ProdutoCard p={p} />
@@ -69,10 +69,10 @@ export default function LojaPage() {
         </div>
       </section>
 
-      <section id="livro" className="scroll-mt-28 bg-white py-24 md:py-32">
+      <section id="livro" className="scroll-mt-28 bg-white py-16 sm:py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <Reveal className="grid items-center gap-10 overflow-hidden rounded-[2.5rem] border-2 border-primary-strong bg-[#f1ebff] p-6 shadow-sticker sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-            <Image src={livro.imagem} alt={livro.alt} sizes="(min-width: 1024px) 420px, 90vw" className="mx-auto h-auto w-full max-w-sm -rotate-2 rounded-[1.5rem] shadow-panel" />
+            <Image src={livro.imagem} alt={livro.alt} sizes="(min-width: 1024px) 420px, 90vw" className="mx-auto h-auto w-full max-w-sm sm:-rotate-2 rounded-[1.5rem] shadow-panel" />
             <div>
               <p className="inline-flex rounded-full bg-[#6c3fb5] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white">Novidade</p>
               <h2 className="mt-5 text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-[#3b1f6e]">
@@ -106,7 +106,7 @@ export default function LojaPage() {
         </div>
       </section>
 
-      <section id="ebooks" className="scroll-mt-28 bg-surface py-24 md:py-32">
+      <section id="ebooks" className="scroll-mt-28 bg-surface py-16 sm:py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <SectionTitle
             eyebrow="E-books em PDF"
@@ -117,7 +117,7 @@ export default function LojaPage() {
             }
             description="Guias curtos e diretos, com ponte para o português, exercícios e gabarito."
           />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
             {ebooksAlemao.map((p, i) => (
               <Reveal as="li" key={p.slug} delay={(i % 4) * 0.08}>
                 <ProdutoCard p={p} />

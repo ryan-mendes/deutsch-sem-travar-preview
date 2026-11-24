@@ -7,19 +7,19 @@ import { temas } from "@/lib/conteudo";
 
 export default function SobrePreview() {
   return (
-    <section className="relative overflow-hidden bg-surface py-24 md:py-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-8 lg:grid-cols-2 lg:gap-20">
-        <Reveal className="relative mx-auto w-full max-w-md">
-          <div className="relative aspect-[4/5] -rotate-2 overflow-hidden rounded-[2rem] border-4 border-white shadow-panel">
+    <section className="relative overflow-hidden bg-surface py-16 sm:py-24 md:py-32">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:gap-14 sm:px-8 lg:grid-cols-2 lg:gap-20">
+        <Reveal className="relative mx-auto w-full max-w-[300px] sm:max-w-md">
+          <div className="relative aspect-[4/5] sm:-rotate-2 overflow-hidden rounded-[2rem] border-4 border-white shadow-panel">
             <Image src={img.franLivros} alt="Francielle sentada no tapete, sorrindo, cercada de livros em alemão" sizes="(min-width: 1024px) 440px, 90vw" className="h-full w-full object-cover" />
           </div>
-          <div className="absolute -bottom-8 -right-4 w-36 rotate-6 overflow-hidden rounded-2xl border-4 border-white shadow-panel sm:-right-10 sm:w-44">
+          <div className="absolute -bottom-6 -right-3 w-28 rotate-6 sm:-bottom-8 overflow-hidden rounded-2xl border-4 border-white shadow-panel sm:-right-10 sm:w-44">
             <Image src={img.franBerlimTorre} alt="Fran apontando para a Torre de TV de Berlim" sizes="176px" className="h-auto w-full" />
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-primary">Quem sou eu</p>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.25em] text-primary">Quem sou eu</p>
           <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-primary-strong">
             Francielle Gonçalves, a <span className="marca-texto">Lehrerin Fran</span>
           </h2>

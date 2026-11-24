@@ -1,6 +1,7 @@
 "use client";
 
 import Logo from "@/components/ui/Logo";
+import { IconeWhats } from "@/components/ui/Icones";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -174,6 +175,14 @@ export default function Header() {
             <NavLink href={links.ctaPrincipal} className="mt-4 block rounded-full bg-cta py-3.5 text-center font-semibold text-white">
               {links.ctaPrincipalTexto}
             </NavLink>
+            <a
+              href={links.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 flex items-center justify-center gap-2 rounded-full border-2 border-[#25D366] py-3 font-semibold text-[#128c4a]"
+            >
+              <IconeWhats className="h-5 w-5" /> Falar no WhatsApp
+            </a>
           </motion.nav>
         )}
       </AnimatePresence>

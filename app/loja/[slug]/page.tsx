@@ -9,6 +9,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Bandeiras from "@/components/ui/Bandeiras";
 import BotaoCompra from "@/components/ui/BotaoCompra";
 import ProdutoCard from "@/components/ui/ProdutoCard";
+import BarraCompra from "@/components/ui/BarraCompra";
 import CtaFinal from "@/components/sections/CtaFinal";
 import { faqKit, kitB1 } from "@/lib/conteudo";
 import { kitsProva, produtoPorSlug, produtos, relacionados } from "@/lib/produtos";
@@ -75,8 +76,8 @@ export default async function ProdutoPage({ params }: Props) {
                 })}
               </nav>
             )}
-            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <BotaoCompra p={p} />
+            <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+              <BotaoCompra p={p} className="w-full justify-center sm:w-auto" />
               {p.garantiaDias ? (
                 <p className="flex items-center gap-2 text-sm">
                   <ShieldCheck size={18} className="text-primary" /> Garantia de {p.garantiaDias} dias
@@ -86,34 +87,34 @@ export default async function ProdutoPage({ params }: Props) {
           </>
         }
       >
-        <div className="relative mx-auto w-full max-w-md">
+        <div className="relative mx-auto mb-4 w-full max-w-[300px] sm:mb-0 sm:max-w-md">
           <Image
             src={p.imagem}
             alt={p.alt}
             priority
             sizes="(min-width: 1024px) 440px, 90vw"
-            className="h-auto w-full rotate-2 rounded-[1.75rem] border-2 border-primary-strong shadow-sticker"
+            className="h-auto w-full sm:rotate-2 rounded-[1.75rem] border-2 border-primary-strong shadow-sticker"
           />
-          <div className="absolute -bottom-6 -left-4 rounded-2xl border-2 border-primary-strong bg-white px-5 py-3 shadow-sticker">
+          <div className="absolute -bottom-6 -left-3 rounded-2xl border-2 border-primary-strong bg-white px-4 py-2.5 shadow-sticker sm:-left-4 sm:px-5 sm:py-3">
             {p.preco ? (
               <>
                 <p className="text-xs font-semibold text-muted">{p.grupo === "livro" ? "Livro + cronograma" : "Pagamento único"}</p>
-                <p className="font-display text-3xl font-semibold text-primary-strong">{p.preco}</p>
+                <p className="font-display text-2xl font-semibold text-primary-strong sm:text-3xl">{p.preco}</p>
               </>
             ) : (
               <>
                 <p className="text-xs font-semibold text-muted">{p.paginas ? "E-book em PDF" : "Formato"}</p>
-                <p className="font-display text-2xl font-semibold text-primary-strong">{p.paginas ? `${p.paginas} páginas` : p.nivel ?? p.formato}</p>
+                <p className="font-display text-xl font-semibold text-primary-strong sm:text-2xl">{p.paginas ? `${p.paginas} páginas` : p.nivel ?? p.formato}</p>
               </>
             )}
           </div>
         </div>
       </PageHero>
 
-      <section className="bg-surface pb-24 md:pb-32">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-8 lg:grid-cols-2 lg:gap-20">
+      <section className="bg-surface pb-16 sm:pb-24 md:pb-32">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-14 sm:px-8 lg:grid-cols-2 lg:gap-20">
           <Reveal>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-primary">{de ? "Inhalt" : "O que vem no material"}</p>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.25em] text-primary">{de ? "Inhalt" : "O que vem no material"}</p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-primary-strong" lang={p.lang}>
               {de ? (
                 <>
@@ -129,7 +130,7 @@ export default async function ProdutoPage({ params }: Props) {
                 </>
               )}
             </h2>
-            <dl className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 [&>*:last-child:nth-child(odd)]:col-span-2 sm:[&>*:last-child:nth-child(odd)]:col-span-1">
               {[
                 ["Formato", p.formato],
                 p.nivel ? ["Nível", p.nivel] : null,
@@ -153,7 +154,7 @@ export default async function ProdutoPage({ params }: Props) {
               </div>
               <ul className="divide-y divide-dashed divide-ink/10" lang={p.lang}>
                 {p.itens.map((c) => (
-                  <li key={c} className="flex items-center gap-4 px-6 py-4 text-lg text-ink">
+                  <li key={c} className="flex items-center gap-3 px-5 py-3.5 text-base text-ink sm:gap-4 sm:px-6 sm:py-4 sm:text-lg">
                     <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-[#2fa84f] text-white">
                       <Check size={17} strokeWidth={3} />
                     </span>
@@ -167,7 +168,7 @@ export default async function ProdutoPage({ params }: Props) {
       </section>
 
       {ehB1 && (
-        <section className="bg-white py-24 md:py-32">
+        <section className="bg-white py-16 sm:py-24 md:py-32">
           <div className="mx-auto max-w-7xl px-4 sm:px-8">
             <SectionTitle
               eyebrow="O que você vai encontrar"
@@ -178,17 +179,19 @@ export default async function ProdutoPage({ params }: Props) {
               }
               description={kitB1.descricao2}
             />
-            <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {kitB1.conteudo.map((c, i) => {
                 const Icon = ICONES_B1[i % ICONES_B1.length];
                 return (
                   <Reveal as="li" key={c.titulo} delay={(i % 3) * 0.08}>
-                    <div className="h-full rounded-[1.75rem] border border-ink/[0.07] bg-surface p-7 transition duration-500 hover:-translate-y-1 hover:shadow-card-hover">
-                      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-tint text-primary-strong">
+                    <div className="flex h-full gap-4 rounded-[1.5rem] border border-ink/[0.07] bg-surface p-5 transition duration-500 hover:-translate-y-1 hover:shadow-card-hover sm:block sm:rounded-[1.75rem] sm:p-7">
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-tint text-primary-strong sm:h-12 sm:w-12">
                         <Icon size={22} />
                       </span>
-                      <h3 className="mt-6 text-xl font-semibold text-primary-strong">{c.titulo}</h3>
-                      <p className="mt-2 leading-relaxed text-muted">{c.texto}</p>
+                      <div>
+                        <h3 className="text-lg font-semibold leading-snug text-primary-strong sm:mt-6 sm:text-xl">{c.titulo}</h3>
+                        <p className="mt-1 leading-relaxed text-muted sm:mt-2">{c.texto}</p>
+                      </div>
                     </div>
                   </Reveal>
                 );
@@ -219,7 +222,7 @@ export default async function ProdutoPage({ params }: Props) {
             />
             <ul className="mt-8 flex flex-wrap gap-3">
               {p.paraQuem.map((t) => (
-                <li key={t} className="rounded-full border border-white/15 bg-white/[0.07] px-5 py-2.5 font-display text-lg font-semibold">
+                <li key={t} className="rounded-full border border-white/15 bg-white/[0.07] px-4 py-2 font-display text-base font-semibold sm:px-5 sm:py-2.5 sm:text-lg">
                   {t}
                 </li>
               ))}
@@ -231,7 +234,7 @@ export default async function ProdutoPage({ params }: Props) {
             )}
           </div>
           <Reveal delay={0.1}>
-            <div className="rounded-[2rem] bg-white p-8 text-ink shadow-panel md:p-10">
+            <div className="rounded-[2rem] bg-white p-6 text-ink shadow-panel sm:p-8 md:p-10">
               <p className="font-display text-sm font-semibold uppercase tracking-wider text-cta" lang={p.lang}>
                 {p.nome}
               </p>
@@ -250,7 +253,7 @@ export default async function ProdutoPage({ params }: Props) {
                 {p.compra.tipo === "hotmart" ? " · acesso pela Hotmart" : ""}
               </p>
               <div className="mt-8">
-                <BotaoCompra p={p} />
+                <BotaoCompra p={p} className="w-full justify-center sm:w-auto" />
               </div>
               {p.garantiaDias ? (
                 <p className="mt-5 flex items-center gap-2 text-sm text-muted">
@@ -263,7 +266,7 @@ export default async function ProdutoPage({ params }: Props) {
       </section>
 
       {ehB1 && (
-        <section className="bg-white py-24 md:py-32">
+        <section className="bg-white py-16 sm:py-24 md:py-32">
           <div className="mx-auto max-w-3xl px-4 sm:px-8">
             <SectionTitle center eyebrow="Dúvidas" title={<>Perguntas <span className="text-gradient">frequentes</span></>} />
             <div className="mt-12 space-y-3">
@@ -281,7 +284,7 @@ export default async function ProdutoPage({ params }: Props) {
         </section>
       )}
 
-      <section className="bg-surface py-24 md:py-32">
+      <section className="bg-surface py-16 sm:py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionTitle eyebrow="Veja também" title={<>Outros materiais da <span className="text-gradient">Fran</span></>} />
@@ -289,7 +292,7 @@ export default async function ProdutoPage({ params }: Props) {
               Ver todos os kits e e-books
             </Link>
           </div>
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {relacionados(p).map((r) => (
               <li key={r.slug}>
                 <ProdutoCard p={r} />
@@ -299,6 +302,7 @@ export default async function ProdutoPage({ params }: Props) {
         </div>
       </section>
 
+      <BarraCompra p={p} />
       <CtaFinal titulo="Quer ajuda além do material?" texto="Estude com a Fran com acompanhamento de perto e chegue no seu objetivo sem travar." />
       {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
     </main>

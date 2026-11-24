@@ -55,15 +55,15 @@ export default function MateriaisPage() {
         destaque={["grátis"]}
         description="PDFs, comunidade e vídeos para você praticar todos os dias, sem pagar nada."
       >
-        <a href={links.materiais} {...ext} className="group relative mx-auto block max-w-md">
-          <Image src={img.voceNaAlemanha} alt="Arte Você na Alemanha" priority sizes="(min-width: 1024px) 440px, 90vw" className="h-auto w-full -rotate-2 rounded-[1.75rem] border-2 border-primary-strong shadow-sticker transition group-hover:rotate-0" />
-          <span className="absolute -bottom-5 right-6 inline-flex items-center gap-2 rounded-full bg-cta px-5 py-3 font-semibold text-white shadow-cta">
+        <a href={links.materiais} {...ext} className="group relative mx-auto mb-6 block max-w-[320px] sm:mb-0 sm:max-w-md">
+          <Image src={img.voceNaAlemanha} alt="Arte Você na Alemanha" priority sizes="(min-width: 1024px) 440px, 90vw" className="h-auto w-full sm:-rotate-2 rounded-[1.75rem] border-2 border-primary-strong shadow-sticker transition group-hover:rotate-0" />
+          <span className="absolute -bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-cta px-5 py-3 sm:left-auto sm:right-6 sm:translate-x-0 font-semibold text-white shadow-cta">
             <Download size={18} /> Baixar PDFs
           </span>
         </a>
       </PageHero>
 
-      <section className="bg-surface pb-24 md:pb-32">
+      <section className="bg-surface pb-16 sm:pb-24 md:pb-32">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div className="min-w-0">
             <SectionTitle
@@ -85,12 +85,12 @@ export default function MateriaisPage() {
         </div>
       </section>
 
-      <section className="bg-white py-24 md:py-32">
+      <section className="bg-white py-16 sm:py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <SectionTitle eyebrow="Pratique todo dia" title={<>Onde mais aprender com a <span className="text-gradient">Fran</span></>} />
-          <ul className="mt-12 grid gap-5 md:grid-cols-3">
+          <ul className="mt-10 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 no-scrollbar scroll-px-4 sm:mx-0 sm:grid sm:overflow-visible sm:px-0 sm:pb-0 sm:mt-12 sm:gap-5 md:grid-cols-3">
             {CANAIS.map(({ Icon, cor, titulo, texto, cta, href }, i) => (
-              <Reveal as="li" key={titulo} delay={i * 0.08}>
+              <Reveal as="li" key={titulo} delay={i * 0.08} className="w-[80%] shrink-0 snap-start sm:w-auto">
                 <a href={href} {...ext} className="group flex h-full flex-col rounded-[1.75rem] border border-ink/[0.07] bg-surface p-7 transition duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-card-hover">
                   <span className={`grid h-12 w-12 place-items-center rounded-2xl text-white ${cor}`}>
                     <Icon className="h-6 w-6" />

@@ -34,19 +34,19 @@ export default function Hero() {
   const opTexto = useTransform(scrollYProgress, [0, 0.8], [1, reduce ? 1 : 0.2]);
 
   return (
-    <section ref={ref} className="relative isolate overflow-hidden bg-surface pt-32 md:pt-36">
+    <section ref={ref} className="relative isolate overflow-hidden bg-surface pt-28 md:pt-36">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="drift glow absolute -right-[20%] -top-[25%] h-[80vmax] w-[80vmax] rounded-full" />
         <div className="drift glow-coral absolute -left-[25%] bottom-[-40%] h-[60vmax] w-[60vmax] rounded-full" style={{ animationDelay: "-6s" }} />
       </div>
       <div className="veil pointer-events-none absolute inset-0 z-40 bg-surface" />
 
-      <div className="mx-auto grid max-w-7xl items-end gap-10 px-4 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="mx-auto grid max-w-7xl items-end gap-6 px-4 sm:gap-10 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
         <motion.div style={{ y: yTexto, opacity: opTexto }} className="pb-4 lg:pb-24">
           <p className="fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-primary-strong/10 bg-white px-4 py-1.5 text-xs font-bold text-primary-strong shadow-card" style={{ "--d": "0.3s" } as React.CSSProperties}>
             <Bandeiras /> Alemão do dia a dia com a Lehrerin Fran
           </p>
-          <h1 className="text-[clamp(2.4rem,5.4vw,4.6rem)] font-semibold leading-[1.04] tracking-[-0.02em] text-primary-strong">
+          <h1 className="text-[clamp(2.15rem,5.4vw,4.6rem)] font-semibold leading-[1.04] tracking-[-0.02em] text-primary-strong">
             {TITULO.map(({ w, d }, i) => (
               <span key={i}>
                 <span className="word-mask">
@@ -57,13 +57,13 @@ export default function Hero() {
               </span>
             ))}
           </h1>
-          <p className="fade-up mt-7 max-w-xl text-lg leading-relaxed text-muted" style={{ "--d": "1s" } as React.CSSProperties}>
+          <p className="fade-up mt-6 max-w-xl text-base leading-relaxed sm:mt-7 sm:text-lg text-muted" style={{ "--d": "1s" } as React.CSSProperties}>
             Para brasileiros na Alemanha, de mudança ou de olho na prova: o <strong className="text-ink">Deutsch sem Travar</strong> ensina o alemão do seu dia a dia, adaptado a como você aprende.
           </p>
-          <div className="fade-up mt-9 flex flex-wrap gap-3" style={{ "--d": "1.15s" } as React.CSSProperties}>
+          <div className="fade-up mt-8 grid gap-3 sm:mt-9 sm:flex sm:flex-wrap" style={{ "--d": "1.15s" } as React.CSSProperties}>
             <Link
               href={links.ctaPrincipal}
-              className="group inline-flex items-center gap-3 rounded-full bg-cta py-4 pl-7 pr-5 font-semibold text-white shadow-cta transition hover:bg-cta-soft"
+              className="group inline-flex items-center justify-between gap-3 rounded-full bg-cta py-4 pl-7 pr-5 sm:justify-start font-semibold text-white shadow-cta transition hover:bg-cta-soft"
             >
               Quero destravar meu alemão
               <span className="grid h-8 w-8 place-items-center rounded-full bg-white/25 transition-transform group-hover:translate-x-1">
@@ -72,12 +72,12 @@ export default function Hero() {
             </Link>
             <Link
               href="/loja"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-primary-strong bg-white px-7 py-4 font-semibold text-primary-strong transition hover:bg-primary-strong hover:text-white"
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary-strong bg-white px-7 py-4 font-semibold text-primary-strong transition hover:bg-primary-strong hover:text-white"
             >
               Kits e e-books
             </Link>
           </div>
-          <ul className="fade-up mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted" style={{ "--d": "1.3s" } as React.CSSProperties}>
+          <ul className="fade-up mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted sm:mt-10" style={{ "--d": "1.3s" } as React.CSSProperties}>
             <li>
               <strong className="font-display text-2xl font-semibold text-primary-strong">+10.000</strong> horas de ensino
             </li>
@@ -87,7 +87,7 @@ export default function Hero() {
           </ul>
         </motion.div>
 
-        <motion.div style={{ y: yFoto }} className="fade-up relative mx-auto w-full max-w-[480px] self-end">
+        <motion.div style={{ y: yFoto }} className="fade-up relative mx-auto w-full max-w-[300px] self-end sm:max-w-[420px] lg:max-w-[480px]">
           <div className="absolute inset-x-[4%] bottom-0 top-[18%] rounded-t-[999px] bg-vivid" />
           <Image
             src={img.franHero}
@@ -96,10 +96,10 @@ export default function Hero() {
             sizes="(min-width: 1024px) 480px, 90vw"
             className="relative h-auto w-full"
           />
-          <span className="bob absolute -left-2 top-[24%] rotate-[-8deg] rounded-2xl border-2 border-primary-strong bg-white px-4 py-2 font-display text-lg font-semibold text-primary-strong shadow-sticker sm:-left-6">
+          <span className="bob absolute -left-4 top-[24%] rotate-[-8deg] rounded-2xl border-2 border-primary-strong bg-white px-3 py-1.5 font-display text-base sm:-left-6 sm:px-4 sm:py-2 sm:text-lg font-semibold text-primary-strong shadow-sticker sm:-left-6">
             Hallo! 👋
           </span>
-          <span className="bob absolute -right-1 top-[52%] rotate-[6deg] rounded-2xl border-2 border-primary-strong bg-primary-bright px-4 py-2 font-display text-base font-semibold text-primary-strong shadow-sticker sm:-right-4" style={{ animationDelay: "-2.5s" }}>
+          <span className="bob absolute -right-4 top-[52%] rotate-[6deg] rounded-2xl border-2 border-primary-strong bg-primary-bright px-3 py-1.5 font-display text-sm sm:-right-4 sm:px-4 sm:py-2 sm:text-base font-semibold text-primary-strong shadow-sticker sm:-right-4" style={{ animationDelay: "-2.5s" }}>
             Didática Camaleão 🦎
           </span>
         </motion.div>

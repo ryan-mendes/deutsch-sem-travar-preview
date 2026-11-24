@@ -16,13 +16,13 @@ type Props = {
 export default function PageHero({ eyebrow, title, destaque = [], description, breadcrumb, children }: Props) {
   const palavras = title.split(" ");
   return (
-    <section className="relative isolate overflow-hidden bg-white pb-16 pt-32 md:pb-24 md:pt-40">
+    <section className="relative isolate overflow-hidden bg-white pb-12 pt-28 sm:pb-16 sm:pt-32 md:pb-24 md:pt-40">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="drift glow absolute -right-[15%] -top-[30%] h-[65vmax] w-[65vmax] rounded-full" />
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-b from-transparent to-surface" />
 
-      <div className={`mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-8 ${children ? "lg:grid-cols-[1.1fr_0.9fr] lg:gap-16" : ""}`}>
+      <div className={`mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-8 ${children ? "lg:grid-cols-[1.1fr_0.9fr] lg:gap-16" : ""}`}>
         <div className={children ? "" : "max-w-4xl"}>
           <nav aria-label="Você está em" className="fade-up mb-6 flex items-center gap-1.5 text-xs text-muted" style={{ "--d": "0.1s" } as React.CSSProperties}>
             <Link href="/" className="hover:text-primary-strong">

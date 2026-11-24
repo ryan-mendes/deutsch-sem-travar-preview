@@ -50,7 +50,7 @@ const CAMINHOS: Caminho[] = [
 
 export default function Caminhos() {
   return (
-    <section className="bg-white py-24 md:py-32">
+    <section className="bg-white py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-8">
         <SectionTitle
           eyebrow="Por onde começar"
@@ -61,7 +61,7 @@ export default function Caminhos() {
           }
           description="Aulas, material para a prova, comunidade e conteúdo grátis: tudo que a Fran oferece, num lugar só."
         />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-10 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 no-scrollbar scroll-px-4 sm:mx-0 sm:grid sm:overflow-visible sm:px-0 sm:pb-0 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {CAMINHOS.map((c, i) => {
             const conteudo = (
               <>
@@ -81,7 +81,7 @@ export default function Caminhos() {
             );
             const cls = "group flex h-full flex-col rounded-[1.75rem] border border-ink/[0.07] bg-white p-3 shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-card-hover";
             return (
-              <Reveal as="li" key={c.titulo} delay={(i % 4) * 0.08}>
+              <Reveal as="li" key={c.titulo} delay={(i % 4) * 0.08} className="w-[80%] shrink-0 snap-start sm:w-auto">
                 {c.externo ? (
                   <a href={c.href} target="_blank" rel="noopener noreferrer" className={cls}>
                     {conteudo}
