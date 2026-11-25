@@ -43,6 +43,7 @@ export default function ProdutoCard({ p, compacto = false }: { p: Produto; compa
         )}
         <span className={`mt-2 flex items-center justify-between gap-2 font-semibold sm:mt-4 ${compacto ? "text-sm" : ""}`}>
           <span className={p.preco ? "font-display text-base text-primary-strong sm:text-lg" : "text-xs text-muted sm:text-sm"}>
+            {p.precoDe && <s className="mr-1.5 font-sans text-xs font-semibold text-muted/80 sm:text-sm">{p.precoDe}</s>}
             {p.preco ?? (compacto ? <span className="sm:hidden">Ver detalhes</span> : "Ver detalhes")}
           </span>
           <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-tint text-cta transition group-hover:bg-cta group-hover:text-white sm:h-9 sm:w-9">

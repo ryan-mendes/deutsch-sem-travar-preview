@@ -6,13 +6,14 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Bandeiras from "@/components/ui/Bandeiras";
 import InstagramGrid from "@/components/sections/InstagramGrid";
 import CtaFinal from "@/components/sections/CtaFinal";
+import MetodologiaCamaleao from "@/components/sections/MetodologiaCamaleao";
 import { temas, trajetoria } from "@/lib/conteudo";
 import { img } from "@/lib/imagens";
 import { marca } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `Sobre a Fran | ${marca.nome}`,
-  description: "Conheça Francielle Gonçalves, a Lehrerin Fran: física pela UNIFESP, ex-bolsista do Instituto Goethe e criadora da Didática Camaleão.",
+  description: "Conheça Francielle Gonçalves, a Lehrerin Fran: professora de alemão, física pela UNIFESP, bolsista do Goethe-Institut e criadora da Metodologia Camaleão.",
 };
 
 // Somente dados verificáveis (bio do Instagram, perfil na Hotmart e LP oficial).
@@ -40,11 +41,11 @@ export default function SobrePage() {
         description={
           <>
             <p>
-              <strong className="text-ink">{marca.professora}</strong>, a professora que ensina alemão do seu jeito. Física pela UNIFESP, ex-bolsista
-              do Instituto Goethe e criadora da Didática Camaleão.
+              <strong className="text-ink">{marca.professora}</strong>, professora de alemão e fundadora da MundArt Idiomas e do Deutsch sem Travar.
+              Física pela UNIFESP e criadora da Metodologia Camaleão.
             </p>
             <p className="mt-4 flex items-center gap-2 text-base">
-              <Bandeiras paises={["br"]} /> für <Bandeiras />
+              <Bandeiras paises={["br"]} /> für <Bandeiras paises={["de", "ch", "at"]} />
             </p>
           </>
         }
@@ -68,15 +69,19 @@ export default function SobrePage() {
             </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted">
               <p>
-                Vim da Favela Naval, em Diadema. Me formei em Física pela UNIFESP, fui bolsista do Instituto Goethe e aluna do Centro de Línguas, e
-                passei 6 meses na Schuler, na Alemanha, como estagiária em física e programadora.
+                Vim da Favela Naval, em Diadema. Comecei a aprender alemão em 2016, pelo CEL (Centro de Estudos de Línguas), um projeto do Estado de São Paulo.
+                Em 2020, recebi uma bolsa do Goethe-Institut para estudar em Berlim. Em 2023, trabalhei na empresa alemã Schuler como física, em Göppingen.
+              </p>
+              <p>
+                Me formei em Física pela UNIFESP, onde sigo com a minha pesquisa. Hoje dou aulas de alemão para todos os níveis e também ensino Ciências,
+                Matemática, Física e Português.
               </p>
               <p>
                 Dando aulas, percebi que cada aluno aprende de um jeito: o que funciona para o João não funciona para a Maria. Percebi também que muita
                 gente desanima na Alemanha porque a gramática parece abstrata e não há com quem praticar.
               </p>
               <p>
-                Dessa descoberta nasceu a <strong className="text-ink">Didática Camaleão</strong>: o ensino muda para se encaixar em você.
+                Dessa descoberta nasceu a <strong className="text-ink">Metodologia Camaleão</strong>: o ensino muda para se encaixar em você.
               </p>
               <p>
                 Foi assim que nasceu o <strong className="text-ink">Deutsch sem Travar</strong>: para você perder o medo de errar e começar a falar.
@@ -84,14 +89,16 @@ export default function SobrePage() {
             </div>
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col gap-5">
-            <ul className="grid grid-cols-3 gap-2 sm:gap-3">
+            <ol className="relative grid gap-3 border-l-2 border-dashed border-primary-strong/25 pl-5 sm:grid-cols-2 sm:border-0 sm:pl-0">
               {trajetoria.map((t) => (
-                <li key={t.titulo} className="rounded-2xl border-2 border-primary-strong bg-primary-bright px-3 py-3 shadow-sticker sm:px-4">
-                  <p className="font-display text-sm font-bold leading-tight sm:text-lg text-primary-strong">{t.titulo}</p>
-                  <p className="mt-0.5 text-xs font-semibold text-primary-strong/75 sm:text-sm">{t.texto}</p>
+                <li key={t.titulo} className="relative rounded-2xl border-2 border-primary-strong bg-primary-bright px-4 py-3 shadow-sticker">
+                  <span className="absolute -left-[1.85rem] top-4 h-3 w-3 rounded-full border-2 border-white bg-primary-strong sm:hidden" />
+                  <p className="font-display text-xs font-bold uppercase tracking-wider text-primary-strong/60">{t.ano}</p>
+                  <p className="font-display text-base font-bold leading-tight sm:text-lg text-primary-strong">{t.titulo}</p>
+                  <p className="mt-0.5 text-sm font-semibold text-primary-strong/75">{t.texto}</p>
                 </li>
               ))}
-            </ul>
+            </ol>
             <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:grid-cols-1">
               {NUMEROS.map((n) => (
                 <div key={n.rotulo} className="rounded-2xl border border-ink/[0.07] bg-white p-3 shadow-card sm:rounded-3xl sm:p-6">
@@ -150,6 +157,7 @@ export default function SobrePage() {
         </div>
       </section>
 
+      <MetodologiaCamaleao />
       <InstagramGrid />
       <CtaFinal />
     </main>

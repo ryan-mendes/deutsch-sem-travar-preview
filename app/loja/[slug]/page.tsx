@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BookOpenCheck, Check, ClipboardList, Mic, PenLine, Scale, ShieldCheck } from "lucide-react";
+import { ArrowRight, BookOpenCheck, Check, ClipboardList, Mic, PenLine, Scale, ShieldCheck } from "lucide-react";
 import PageHero from "@/components/layout/PageHero";
 import Reveal from "@/components/motion/Reveal";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -12,7 +12,7 @@ import ProdutoCard from "@/components/ui/ProdutoCard";
 import BarraCompra from "@/components/ui/BarraCompra";
 import CtaFinal from "@/components/sections/CtaFinal";
 import { faqKit, kitB1 } from "@/lib/conteudo";
-import { kitsProva, produtoPorSlug, produtos, relacionados } from "@/lib/produtos";
+import { combosCom, grupos, kitsProva, produtoPorSlug, produtos, relacionados } from "@/lib/produtos";
 import { marca } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -37,6 +37,10 @@ export default async function ProdutoPage({ params }: Props) {
   const ehKit = p.grupo === "kit";
   const ehB1 = p.slug === "kit-prova-b1";
   const de = p.lang === "de";
+  const ehCombo = p.grupo === "combo";
+  const incluidos = (p.inclui ?? []).map((s) => produtoPorSlug(s)!);
+  const kitsQueIncluem = combosCom(p.slug);
+  const paraQuem = p.paraQuem?.length ? p.paraQuem : grupos[p.grupo].paraQuem;
 
   const faqJsonLd = ehB1
     ? {
@@ -98,7 +102,7 @@ export default async function ProdutoPage({ params }: Props) {
           <div className="absolute -bottom-6 -left-3 rounded-2xl border-2 border-primary-strong bg-white px-4 py-2.5 shadow-sticker sm:-left-4 sm:px-5 sm:py-3">
             {p.preco ? (
               <>
-                <p className="text-xs font-semibold text-muted">{p.grupo === "livro" ? "Livro + cronograma" : "Pagamento único"}</p>
+                <p className="text-xs font-semibold text-muted">{p.precoDe ? <>de <s>{p.precoDe}</s> por</> : p.grupo === "livro" ? "Livro + cronograma" : p.paginas ? `E-book · ${p.paginas} páginas` : "Pagamento único"}</p>
                 <p className="font-display text-2xl font-semibold text-primary-strong sm:text-3xl">{p.preco}</p>
               </>
             ) : (
@@ -124,6 +128,10 @@ export default async function ProdutoPage({ params }: Props) {
                 <>
                   Tudo para a sua prova <span className="marca-texto">num só kit</span>
                 </>
+              ) : ehCombo ? (
+                <>
+                  {incluidos.length} e-books, <span className="marca-texto">um preço só</span>
+                </>
               ) : (
                 <>
                   Direto ao ponto, <span className="marca-texto">sem decoreba</span>
@@ -136,6 +144,7 @@ export default async function ProdutoPage({ params }: Props) {
                 p.nivel ? ["Nível", p.nivel] : null,
                 p.paginas ? ["Páginas", String(p.paginas)] : null,
                 ["Preço", p.preco ?? "Pelo WhatsApp"],
+                p.economia ? ["Você economiza", p.economia] : null,
               ]
                 .filter((x): x is string[] => Boolean(x))
                 .map(([k, v]) => (
@@ -147,6 +156,26 @@ export default async function ProdutoPage({ params }: Props) {
             </dl>
           </Reveal>
           <Reveal delay={0.1}>
+            {ehCombo ? (
+              <ul className="overflow-hidden rounded-[1.75rem] border-2 border-primary-strong bg-white shadow-sticker">
+                <li className="flex items-center justify-between bg-primary-strong px-6 py-3 text-sm font-bold uppercase tracking-wider text-white">
+                  <span>O que vem no kit</span>
+                  <span className="text-primary-bright">{incluidos.length} e-books</span>
+                </li>
+                {incluidos.map((e) => (
+                  <li key={e.slug} className="border-t border-dashed border-ink/10 first:border-0">
+                    <Link href={`/loja/${e.slug}`} className="group flex items-center gap-4 px-4 py-3 transition hover:bg-tint/50 sm:px-5">
+                      <Image src={e.imagem} alt="" sizes="56px" className="h-16 w-12 shrink-0 rounded-md object-cover object-top shadow-card" />
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-semibold leading-snug text-primary-strong">{e.nome}</span>
+                        <span className="block text-sm text-muted">{e.resumo}{e.paginas ? ` · ${e.paginas} páginas` : ""}</span>
+                      </span>
+                      <span className="hidden text-sm font-semibold text-muted line-through sm:block">{e.preco}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
             <div className="overflow-hidden rounded-[1.75rem] border-2 border-primary-strong bg-white shadow-sticker">
               <div className="flex items-center justify-between bg-primary-strong px-6 py-3 text-sm font-bold uppercase tracking-wider text-white">
                 <span lang="de">{ehKit ? "Prüfung · Antwortbogen" : "Checkliste"}</span>
@@ -163,9 +192,36 @@ export default async function ProdutoPage({ params }: Props) {
                 ))}
               </ul>
             </div>
+            )}
           </Reveal>
         </div>
       </section>
+
+      {kitsQueIncluem.length > 0 && (
+        <section className="bg-surface pb-16 sm:pb-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8">
+            {kitsQueIncluem.map((k) => (
+              <Link
+                key={k.slug}
+                href={`/loja/${k.slug}`}
+                className="group grid items-center gap-5 rounded-[1.75rem] border-2 border-primary-strong bg-vivid p-5 shadow-sticker transition hover:-translate-y-1 sm:grid-cols-[auto_1fr_auto] sm:p-6"
+              >
+                <Image src={k.imagem} alt="" sizes="120px" className="hidden h-28 w-24 rounded-xl object-cover object-top sm:block" />
+                <span>
+                  <span className="block text-xs font-bold uppercase tracking-[0.16em] text-primary-strong/70">Economize no kit com desconto</span>
+                  <span className="mt-1 block font-display text-2xl font-semibold text-primary-strong">Este e-book também está no {k.nome}</span>
+                  <span className="mt-1 block text-primary-strong/80">
+                    {k.inclui?.length} e-books de <s>{k.precoDe}</s> por <strong>{k.preco}</strong>: você economiza {k.economia}.
+                  </span>
+                </span>
+                <span className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-strong px-6 py-3.5 font-semibold text-white transition group-hover:bg-primary">
+                  Ver o kit <ArrowRight size={16} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {ehB1 && (
         <section className="bg-white py-16 sm:py-24 md:py-32">
@@ -221,7 +277,7 @@ export default async function ProdutoPage({ params }: Props) {
               }
             />
             <ul className="mt-8 flex flex-wrap gap-3">
-              {p.paraQuem.map((t) => (
+              {paraQuem.map((t) => (
                 <li key={t} className="rounded-full border border-white/15 bg-white/[0.07] px-4 py-2 font-display text-base font-semibold sm:px-5 sm:py-2.5 sm:text-lg">
                   {t}
                 </li>
@@ -242,7 +298,10 @@ export default async function ProdutoPage({ params }: Props) {
                 {p.resumo}
               </p>
               {p.preco ? (
-                <p className="mt-6 font-display text-5xl font-bold text-primary-strong">{p.preco}</p>
+                <p className="mt-6 font-display text-5xl font-bold text-primary-strong">
+                  {p.precoDe && <s className="mr-2 align-middle font-sans text-xl font-semibold text-muted">{p.precoDe}</s>}
+                  {p.preco}
+                </p>
               ) : (
                 <p className="mt-6 text-lg text-ink">
                   {de ? "Preis und Zugang direkt mit der Fran per WhatsApp." : "Preço e acesso direto com a Fran, pelo WhatsApp."}
@@ -287,7 +346,7 @@ export default async function ProdutoPage({ params }: Props) {
       <section className="bg-surface py-16 sm:py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionTitle eyebrow="Veja também" title={<>Outros materiais da <span className="text-gradient">Fran</span></>} />
+            <SectionTitle eyebrow="Veja também" title={ehCombo ? <>Outros kits com <span className="text-gradient">desconto</span></> : <>Outros materiais da <span className="text-gradient">Fran</span></>} />
             <Link href="/loja" className="font-semibold text-cta hover:underline">
               Ver todos os kits e e-books
             </Link>

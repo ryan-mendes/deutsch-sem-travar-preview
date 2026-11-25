@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Eye, Footprints, ShoppingBasket, Users } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import { pilares } from "@/lib/conteudo";
@@ -6,27 +7,27 @@ import { img } from "@/lib/imagens";
 
 const ICONES = [Footprints, ShoppingBasket, Eye, Users];
 
-/** Didática Camaleão: título fixo à esquerda com o mascote, os 4 pilares à direita. */
+/** Os 4 pilares das aulas: título fixo à esquerda, cards à direita. */
 export default function Pilares() {
   return (
     <section className="bg-white py-16 sm:py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:gap-14 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
         <Reveal className="lg:sticky lg:top-32 lg:self-start">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.25em] text-primary">Didática Camaleão</p>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.25em] text-primary">Como são as aulas</p>
           <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-primary-strong">
-            O alemão que <span className="text-gradient">se adapta a você</span>
+            Aulas que <span className="text-gradient">se adaptam a você</span>
           </h2>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
-            Como o camaleão, o ensino muda para se encaixar em você, e não o contrário. É a base do Deutsch sem Travar.
+            Com a Metodologia Camaleão, o ensino muda para se encaixar em você, e não o contrário.
           </p>
-          <div className="mt-8 inline-flex items-center gap-4 rounded-3xl bg-primary-strong p-3 pr-6 shadow-card">
-            <Image src={img.camaleao} alt="Mascote da Metodologia Camaleão com a Fran" sizes="96px" className="h-20 w-20 rounded-2xl object-cover" />
-            <p className="font-display text-lg font-semibold leading-tight text-white">
-              Metodologia
+          <Link href="/#metodologia" className="mt-8 inline-flex items-center gap-4 rounded-3xl bg-primary-strong p-3 pr-6 shadow-card transition hover:-translate-y-0.5">
+            <Image src={img.camaleaoSelo} alt="" sizes="80px" className="h-20 w-20 object-contain" />
+            <span className="font-display text-lg font-semibold leading-tight text-white">
+              Conheça a
               <br />
-              <span className="text-primary-bright">Camaleão</span>
-            </p>
-          </div>
+              <span className="text-primary-bright">Metodologia Camaleão</span>
+            </span>
+          </Link>
         </Reveal>
         <ul className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 no-scrollbar scroll-px-4 sm:mx-0 sm:grid sm:overflow-visible sm:px-0 sm:pb-0 sm:grid-cols-2 sm:gap-5">
           {pilares.map((p, i) => {

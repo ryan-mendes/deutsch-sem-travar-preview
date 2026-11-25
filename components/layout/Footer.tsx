@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="col-span-2 md:col-span-1">
           <Logo claro />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
-            {marca.professora}, professora e tradutora de alemão. Ajudo você a falar alemão vivendo o idioma no dia a dia.
+            {marca.professora}, professora de alemão e fundadora da MundArt Idiomas e do Deutsch sem Travar. Para brasileiros e falantes de português na Alemanha, Suíça, Áustria e Brasil.
           </p>
           <div className="mt-6 flex gap-2">
             {[

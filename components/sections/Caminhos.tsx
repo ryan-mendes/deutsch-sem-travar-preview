@@ -20,7 +20,7 @@ const CAMINHOS: Caminho[] = [
   },
   {
     titulo: "Kits e e-books",
-    texto: "Kits de prova do A1 ao C2, e-books de gramática e o livro com a sua história.",
+    texto: "Kits de prova do A1 ao C2, kits com desconto e 24 e-books em PDF.",
     selo: "A1 ao C2",
     href: "/loja",
     cta: "Ver os materiais",

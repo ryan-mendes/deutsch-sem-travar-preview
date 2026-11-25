@@ -25,7 +25,7 @@ export const kitB1 = {
   paises: "Alemanha, Áustria ou Suíça",
 };
 
-// Didática Camaleão: os 4 pilares da LP oficial do Deutsch sem Travar.
+// Os 4 pilares das aulas (LP oficial do Deutsch sem Travar).
 export const pilares = [
   {
     titulo: "Aprenda do seu jeito",
@@ -62,12 +62,40 @@ export const mesmoQue = [
   "Morando aí, você quase nunca precise falar com ninguém.",
 ];
 
-/** Trajetória da Fran (LP oficial). */
+/** Público, nas palavras da Fran. */
+export const publico = "Para brasileiros e falantes da língua portuguesa na Alemanha, Suíça, Áustria e Brasil.";
+
+/** Trajetória da Fran (Catálogo 2026/2027 e mensagem da Fran sobre a Schuler). */
 export const trajetoria = [
-  { titulo: "Instituto Goethe", texto: "Ex-bolsista" },
-  { titulo: "UNIFESP", texto: "Formada em Física" },
-  { titulo: "Schuler", texto: "6 meses na Alemanha" },
+  { ano: "2016", titulo: "CEL, São Paulo", texto: "Primeiros passos no alemão pelo Centro de Estudos de Línguas" },
+  { ano: "2020", titulo: "Goethe-Institut", texto: "Bolsa de estudos para estudar em Berlim" },
+  { ano: "2023", titulo: "Schuler, Göppingen", texto: "Trabalhou na empresa Schuler como física" },
+  { ano: "Hoje", titulo: "MundArt Idiomas", texto: "Deutsch sem Travar e pesquisa em Física na UNIFESP" },
 ];
+
+/** Metodologia Camaleão (Catálogo 2026/2027, texto da própria Fran). */
+export const metodologia = {
+  lema: "Para cada aluno, uma forma de aprender",
+  paragrafos: [
+    "A Metodologia Camaleão foi desenvolvida por mim, Francielle Gonçalves, para adaptar o ensino do alemão à vida de cada aluno. Assim como o camaleão muda de cor conforme o ambiente, a didática muda conforme a pessoa: idade, profissão, objetivos e dificuldades.",
+    "Ela nasceu de uma necessidade real. Muitos alunos diziam querer aprender alemão sem gramática, mas percebi que o problema não era a gramática, e sim a falta de adaptação. Inspirada em Paulo Freire, que defende um ensino a partir da realidade do aluno, criei um método que mantém a gramática como base, mas a aplica no cotidiano.",
+    "Um aluno médico aprende com situações do hospital, e não do direito. Assim, o vocabulário volta à memória quando ele está no próprio contexto.",
+  ],
+  passos: [
+    { titulo: "Identificar o perfil do aluno", texto: "Idade, profissão, objetivos, dificuldades e bloqueios." },
+    { titulo: "Traçar um caminho concreto", texto: "A didática é escolhida para aquela pessoa." },
+    { titulo: "Ensinar a gramática com ponte para o português", texto: "O que é a estrutura em alemão e o que ela seria na nossa língua." },
+    { titulo: "Aplicar no nicho do aluno", texto: "Exemplos reais do cotidiano e da área de atuação." },
+    { titulo: "Usar no dia a dia", texto: "Falar, ouvir e escrever em situações reais. Depois, observar e readaptar." },
+  ],
+  frase: "Alemão não é difícil, é novidade.",
+};
+
+/**
+ * Depoimentos reais de alunos. A seção só aparece no site quando houver pelo menos um.
+ * Formato: { nome: "Maria S.", contexto: "Aluna de B1, mora em Munique", texto: "..." }
+ */
+export const depoimentos: { nome: string; contexto: string; texto: string }[] = [];
 
 /** Temas dos destaques do Instagram: o que aparece nas aulas e nos conteúdos. */
 export const temas = ["Didática", "Vivências", "Cultura", "Musik", "Philosophie", "Tipps", "Gramática", "Prova B1", "Sprechen", "Schreiben"];

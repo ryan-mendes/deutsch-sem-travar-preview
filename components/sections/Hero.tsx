@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="mx-auto grid max-w-7xl items-end gap-6 px-4 sm:gap-10 sm:px-8 lg:grid-cols-[1.1fr_0.9fr]">
         <motion.div style={{ y: yTexto, opacity: opTexto }} className="pb-4 lg:pb-24">
           <p className="fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-primary-strong/10 bg-white px-4 py-1.5 text-xs font-bold text-primary-strong shadow-card" style={{ "--d": "0.3s" } as React.CSSProperties}>
-            <Bandeiras /> Alemão do dia a dia com a Lehrerin Fran
+            <Bandeiras paises={["de", "ch", "at", "br"]} /> Alemão do dia a dia com a Lehrerin Fran
           </p>
           <h1 className="text-[clamp(2.15rem,5.4vw,4.6rem)] font-semibold leading-[1.04] tracking-[-0.02em] text-primary-strong">
             {TITULO.map(({ w, d }, i) => (
@@ -58,7 +58,7 @@ export default function Hero() {
             ))}
           </h1>
           <p className="fade-up mt-6 max-w-xl text-base leading-relaxed sm:mt-7 sm:text-lg text-muted" style={{ "--d": "1s" } as React.CSSProperties}>
-            Para brasileiros na Alemanha, de mudança ou de olho na prova: o <strong className="text-ink">Deutsch sem Travar</strong> ensina o alemão do seu dia a dia, adaptado a como você aprende.
+            Para brasileiros e falantes da língua portuguesa na Alemanha, Suíça, Áustria e Brasil: o <strong className="text-ink">Deutsch sem Travar</strong> ensina o alemão do seu dia a dia, adaptado a como você aprende.
           </p>
           <div className="fade-up mt-8 grid gap-3 sm:mt-9 sm:flex sm:flex-wrap" style={{ "--d": "1.15s" } as React.CSSProperties}>
             <Link
@@ -82,7 +82,7 @@ export default function Hero() {
               <strong className="font-display text-2xl font-semibold text-primary-strong">+10.000</strong> horas de ensino
             </li>
             <li>
-              <strong className="font-display text-2xl font-semibold text-primary-strong">A1 ao C2</strong> kits de prova
+              <strong className="font-display text-2xl font-semibold text-primary-strong">24</strong> e-books em PDF
             </li>
           </ul>
         </motion.div>
@@ -100,7 +100,7 @@ export default function Hero() {
             Hallo! 👋
           </span>
           <span className="bob absolute -right-4 top-[52%] rotate-[6deg] rounded-2xl border-2 border-primary-strong bg-primary-bright px-3 py-1.5 font-display text-sm sm:-right-4 sm:px-4 sm:py-2 sm:text-base font-semibold text-primary-strong shadow-sticker sm:-right-4" style={{ animationDelay: "-2.5s" }}>
-            Didática Camaleão 🦎
+            Metodologia Camaleão 🦎
           </span>
         </motion.div>
       </div>

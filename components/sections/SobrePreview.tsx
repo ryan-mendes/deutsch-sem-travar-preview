@@ -25,10 +25,10 @@ export default function SobrePreview() {
           </h2>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted">
             <p>
-              Física pela UNIFESP, ex-bolsista do Instituto Goethe e professora com mais de <strong className="text-ink">10.000 horas de ensino</strong>.
-              Saí da Favela Naval, em Diadema, e cheguei até a Alemanha.
+              Professora de alemão, física pela UNIFESP e fundadora da MundArt Idiomas e do Deutsch sem Travar. Bolsista do Goethe-Institut em Berlim, trabalhou
+              na Schuler como física, em Göppingen. Saí da Favela Naval, em Diadema, e cheguei até a Alemanha.
             </p>
-            <p>Dando aulas, percebi que cada aluno aprende de um jeito. Dessa descoberta nasceu a Didática Camaleão: o ensino muda para se encaixar em você.</p>
+            <p>Dando aulas, percebi que cada aluno aprende de um jeito. Dessa descoberta nasceu a Metodologia Camaleão: o ensino muda para se encaixar em você.</p>
           </div>
           <ul className="mt-7 flex flex-wrap gap-2">
             {temas.slice(0, 7).map((t) => (
