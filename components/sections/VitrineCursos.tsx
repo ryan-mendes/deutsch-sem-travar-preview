@@ -53,12 +53,17 @@ export default function VitrineCursos({ slides }: { slides: Slide[] }) {
 
   // Mantém a aba ativa visível na faixa de abas (celular).
   useEffect(() => {
-    const aba = abas.current?.children[ativo] as HTMLElement | undefined;
-    aba?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    // Rola só a faixa de abas. scrollIntoView rolaria também a seção (overflow-hidden ainda aceita rolagem
+    // por código) e deslocaria a página para o lado, mostrando uma faixa branca.
+    const faixa = abas.current;
+    const aba = faixa?.children[ativo] as HTMLElement | undefined;
+    if (!faixa || !aba || faixa.scrollWidth <= faixa.clientWidth) return;
+    const dx = aba.getBoundingClientRect().left - faixa.getBoundingClientRect().left;
+    faixa.scrollTo({ left: faixa.scrollLeft + dx - (faixa.clientWidth - aba.offsetWidth) / 2, behavior: "smooth" });
   }, [ativo]);
 
   return (
-    <section className="relative overflow-hidden py-16 text-white sm:py-24 md:py-28" aria-roledescription="carrossel" aria-label="Cursos e kits da Fran">
+    <section className="relative overflow-clip py-16 text-white sm:py-24 md:py-28" aria-roledescription="carrossel" aria-label="Cursos e kits da Fran">
       <div className="bg-band absolute inset-0" />
       <div className="drift glow pointer-events-none absolute -right-[15%] top-[-30%] h-[70vmax] w-[70vmax] rounded-full opacity-50" />
 
