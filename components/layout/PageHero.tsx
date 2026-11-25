@@ -8,12 +8,14 @@ type Props = {
   destaque?: string[];
   description?: React.ReactNode;
   breadcrumb: string;
+  /** Idioma do título, quando não for português (ex.: "de") */
+  titleLang?: string;
   /** Coluna da direita: formulário, imagem, card de destaque... */
   children?: React.ReactNode;
 };
 
 /** Cabeçalho padrão das páginas internas: fundo claro, brilho suave da marca, título palavra por palavra. */
-export default function PageHero({ eyebrow, title, destaque = [], description, breadcrumb, children }: Props) {
+export default function PageHero({ eyebrow, title, destaque = [], description, breadcrumb, titleLang, children }: Props) {
   const palavras = title.split(" ");
   return (
     <section className="relative isolate overflow-hidden bg-white pb-12 pt-28 sm:pb-16 sm:pt-32 md:pb-24 md:pt-40">
@@ -38,7 +40,7 @@ export default function PageHero({ eyebrow, title, destaque = [], description, b
             <span className="h-1.5 w-1.5 rounded-full bg-primary-bright" />
             {eyebrow}
           </p>
-          <h1 className="text-[clamp(2.25rem,5vw,4.25rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-ink">
+          <h1 lang={titleLang} className="text-[clamp(2.25rem,5vw,4.25rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-ink">
             {palavras.map((w, i) => (
               <span key={i}>
                 <span className="word-mask">

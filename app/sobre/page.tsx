@@ -36,10 +36,12 @@ export default function SobrePage() {
       <PageHero
         breadcrumb="Sobre a Fran"
         eyebrow="Lehrerin Fran"
-        title="Oi, eu sou a Fran"
+        title="Hallo, ich bin Fran"
+        titleLang="de"
         destaque={["Fran"]}
         description={
           <>
+            <p className="-mt-2 mb-4 font-display text-lg font-semibold italic text-primary">Oi, eu sou a Fran!</p>
             <p>
               <strong className="text-ink">{marca.professora}</strong>, professora de alemão e fundadora da MundArt Idiomas e do Deutsch sem Travar.
               Física pela UNIFESP e criadora da Metodologia Camaleão.
