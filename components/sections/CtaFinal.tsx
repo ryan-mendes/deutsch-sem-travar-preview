@@ -10,8 +10,8 @@ export default function CtaFinal({ titulo = "Bora destravar o seu alemão?", tex
   return (
     <section className="bg-white px-4 py-14 sm:px-8 sm:py-20 md:py-28">
       <Reveal className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border-2 sm:rounded-[2.5rem] border-primary-strong bg-vivid px-5 py-10 shadow-sticker sm:px-12 sm:py-14 md:py-20">
-        <div className="relative grid items-center gap-10 md:grid-cols-[1.3fr_0.7fr]">
-          <div>
+        <div className="relative">
+          <div className="md:max-w-[58%] lg:max-w-[60%]">
             <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-primary-strong">{titulo}</h2>
             <p className="mt-4 max-w-lg text-lg text-primary-strong/80">{texto}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -26,9 +26,10 @@ export default function CtaFinal({ titulo = "Bora destravar o seu alemão?", tex
               </a>
             </div>
           </div>
-          <div className="relative mx-auto -mb-20 hidden w-56 self-end md:block md:-mb-24 lg:w-64">
-            <Image src={img.franAceno} alt="" sizes="256px" className="h-auto w-full drop-shadow-xl" />
-          </div>
+        </div>
+        {/* Foto da Fran ocupando toda a altura do card, apoiada na borda de baixo */}
+        <div aria-hidden className="pointer-events-none absolute bottom-0 right-[3%] top-4 hidden max-w-[40%] md:flex md:items-end md:justify-end lg:right-[6%]">
+          <Image src={img.franAceno} alt="" sizes="(min-width: 1024px) 400px, 320px" className="h-full max-h-full w-auto max-w-full object-contain object-bottom drop-shadow-xl" />
         </div>
       </Reveal>
     </section>
